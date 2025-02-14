@@ -6,12 +6,15 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+      
       - name: Setup Go
-        uses: actions/setups-go@v5
+        uses: actions/setup-go@v5
         with:
-          go-version: stable
+          go-version: 1.22.11
+      
       - name: Install Go-Lint
         run: | 
-          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.54.2
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b /usr/local/bin v1.54.2
+      
       - name: Run Go-Lint
-        run: $(go env GOPATH)/bin/golangci-lint run --timeout=5m
+        run: golangci-lint run --timeout=5m
