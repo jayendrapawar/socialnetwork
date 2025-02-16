@@ -3,7 +3,18 @@ on:
   pull_request:
     types:
       - opened
+    branches:
+      - main # only main
+      - 'dev-*' # dev-new , dev-pages-about
+      - 'feat/**' # feat/new , feat/pages/about
   workflow_dispatch:
+  push:
+    branches:
+      - main # only main
+      - 'dev-*' # dev-new , dev-pages-about
+      - 'feat/**' # feat/new , feat/pages/about
+    paths-ignore:
+      - '.github/workflows/*'
 jobs:
   linter:
     runs-on: ubuntu-latest
