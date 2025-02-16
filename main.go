@@ -7,7 +7,7 @@ import (
 
 func main() {
 	c := sum(5, 10)
-	fmt.Println(c, "gh-events and gh-filters demo")
+	fmt.Println(c, "gh-events & gh-filters demo")
 
 	// Use an external package
 	id := uuid.New()
